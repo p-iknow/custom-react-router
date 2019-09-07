@@ -5,9 +5,10 @@ export function Route({ path, component }) {
 
   const { route } = useContext(RouterContext);
 
-  if ( route.path !== path ) {
-    return null;
+  if ( route.path === path ) {
+    return component;
   }
 
-  return component;
+  return null;
+  
 }
