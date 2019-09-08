@@ -1,8 +1,8 @@
 import React, {createContext} from 'react';
-import { createBrowseHistory } from 'history';
+import { createBrowserHistory } from 'history';
 import { locationToRoute } from './util';
 
-export const  history = createBrowseHistory();
+export const  history = createBrowserHistory();
 
 export const RouterContext = createContext({
   route: locationToRoute(history.location)
