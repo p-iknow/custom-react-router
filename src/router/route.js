@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { RouterContext } from './context';
 
-export function Route({ path, component }) {
+export function Route({ path, component : Component }) {
 
   const { route } = useContext(RouterContext);
-
   if ( route.path === path ) {
-    return component;
+
+    return <Component />
   }
 
   return null;
