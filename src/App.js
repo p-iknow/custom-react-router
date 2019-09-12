@@ -1,7 +1,7 @@
 import React from "react";
 import { Router, Route, Link } from "./router";
 
-function Index() {
+function Index({ match, history, location}) {
   return <h2>Home</h2>;
 }
 

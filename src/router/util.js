@@ -1,5 +1,5 @@
 import qs from 'querystringify';
-import pathToRegexp from 'path-to-regexp';
+import pathToRegexp from "path-to-regexp";
 
 export function locationToRoute(location) {
   // location comes from the history package
@@ -22,7 +22,6 @@ export function matchPath(pathname, options) {
   const { path, exact = false, stric = false, sensitive = false } = options;
 
   const paths = [].concat(path);
-
   return paths.reduce((matched, path) => {
     if (!path) return null;
     if (matched) return matched;
@@ -52,35 +51,6 @@ export function matchPath(pathname, options) {
         return memo;
       }, {})
     }
-  })
+  }, null)
 
-  if (!path) {
-    return {
-      path: null,
-      url: pathname,
-      isExact: true
-    }
-  }
-
-  const match = new RegExp(`^${path}`).exec(pathname);
-
-  if (!match) {
-    // 메치된 내용이 없을 경우
-    return null;
-  }
-
-  const url = match[0];
-  const isExact = pathname === url;
-
-  if (exact && !isExact) {
-    // exact 옵션이 true 인데,
-    // 정확하게 일치하지 않는 경우 
-    return null;
-  }
-
-  return {
-    path,
-    url,
-    isExact
-  }
 }

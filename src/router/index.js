@@ -23,7 +23,7 @@ function Router (props) {
   }, [])
 
   const { children } = props;
-  const routerContextValue = { route };
+  const routerContextValue = { route, history };
   // const is404 = routes.indexOf(route.path) === -1;
   return (
     <RouterContext.Provider value={routerContextValue}>
